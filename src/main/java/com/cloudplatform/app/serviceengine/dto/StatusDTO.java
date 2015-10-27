@@ -5,23 +5,32 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class StatusDTO {
 
-    private DiskStatus diskStatus;
-    private MemoryStatus memoryStatus;
+    private Integer deviceId;
+    private DiskStatusDTO diskStatusDTO;
+    private MemoryStatusDTO memoryStatusDTO;
 
-    public DiskStatus getDiskStatus() {
-        return diskStatus;
+    public Integer getDeviceId() {
+        return deviceId;
     }
 
-    public void setDiskStatus(DiskStatus diskStatus) {
-        this.diskStatus = diskStatus;
+    public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public MemoryStatus getMemoryStatus() {
-        return memoryStatus;
+    public DiskStatusDTO getDiskStatusDTO() {
+        return diskStatusDTO;
     }
 
-    public void setMemoryStatus(MemoryStatus memoryStatus) {
-        this.memoryStatus = memoryStatus;
+    public void setDiskStatusDTO(DiskStatusDTO diskStatusDTO) {
+        this.diskStatusDTO = diskStatusDTO;
+    }
+
+    public MemoryStatusDTO getMemoryStatusDTO() {
+        return memoryStatusDTO;
+    }
+
+    public void setMemoryStatusDTO(MemoryStatusDTO memoryStatusDTO) {
+        this.memoryStatusDTO = memoryStatusDTO;
     }
 
 }

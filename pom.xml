@@ -46,7 +46,7 @@
                             <linkAnyMediaTypeToXmlSchema>true</linkAnyMediaTypeToXmlSchema>
                             <classResourceNames/>
                             <basePackages>
-                                com.cloudplatform.restful
+                                com.cloudplatform.app.restful
                             </basePackages>
                             <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
                             <attachWadl>true</attachWadl>
@@ -118,6 +118,11 @@
         </dependency>
 
         <!-- PACK WITH -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
 
     </dependencies>
 

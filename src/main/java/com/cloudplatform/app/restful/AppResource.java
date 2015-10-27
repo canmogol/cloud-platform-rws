@@ -2,10 +2,10 @@ package com.cloudplatform.app.restful;
 
 
 import com.cloudplatform.app.serviceengine.AppServiceEngine;
-import com.cloudplatform.app.serviceengine.dto.LatestVersion;
-import com.cloudplatform.app.serviceengine.dto.StatusResponse;
-import com.cloudplatform.app.serviceengine.dto.SystemInfoRequest;
-import com.cloudplatform.app.serviceengine.dto.SystemInfoResponse;
+import com.cloudplatform.app.serviceengine.dto.LatestVersionDTO;
+import com.cloudplatform.app.serviceengine.dto.StatusResponseDTO;
+import com.cloudplatform.app.serviceengine.dto.SystemInfoRequestDTO;
+import com.cloudplatform.app.serviceengine.dto.SystemInfoResponseDTO;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -27,16 +27,17 @@ public class AppResource {
 
     @POST
     @Path("/info")
-    public SystemInfoResponse statusChanged(SystemInfoRequest request) {
+    public SystemInfoResponseDTO statusChanged(SystemInfoRequestDTO request) {
         // handle status of device
-        StatusResponse statusResponse = appServiceEngine.statusChanged(request.getDeviceId(), request.getStatusDTO());
+        StatusResponseDTO statusResponseDTO = appServiceEngine.statusChanged(request.getStatusDTO());
         // find latest version
-        LatestVersion latestVersion = appServiceEngine.findLatestVersion();
+        LatestVersionDTO latestVersionDTO = appServiceEngine.findLatestVersion();
         // prepare response
-        SystemInfoResponse systemInfoResponse = new SystemInfoResponse();
-        systemInfoResponse.setStatusResponse(statusResponse);
-        systemInfoResponse.setLatestVersion(latestVersion);
-        return systemInfoResponse;
+        SystemInfoResponseDTO systemInfoResponseDTO = new SystemInfoResponseDTO();
+        systemInfoResponseDTO.setStatusResponseDTO(statusResponseDTO);
+        systemInfoResponseDTO.setLatestVersionDTO(latestVersionDTO);
+        systemInfoResponseDTO.setResponseUUID(request.getRequestUUID());
+        return systemInfoResponseDTO;
     }
 
 }

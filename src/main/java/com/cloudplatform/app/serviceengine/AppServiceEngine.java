@@ -1,17 +1,17 @@
 package com.cloudplatform.app.serviceengine;
 
 
-import com.cloudplatform.app.serviceengine.dto.LatestVersion;
+import com.cloudplatform.app.serviceengine.dto.LatestVersionDTO;
 import com.cloudplatform.app.serviceengine.dto.StatusDTO;
-import com.cloudplatform.app.serviceengine.dto.StatusResponse;
+import com.cloudplatform.app.serviceengine.dto.StatusResponseDTO;
 
 import javax.ejb.Local;
 
 @Local
 public interface AppServiceEngine {
 
-    StatusResponse statusChanged(Integer deviceId, StatusDTO statusDTO);
+    StatusResponseDTO statusChanged(StatusDTO statusDTO);
 
-    LatestVersion findLatestVersion();
+    LatestVersionDTO findLatestVersion();
 
 }
